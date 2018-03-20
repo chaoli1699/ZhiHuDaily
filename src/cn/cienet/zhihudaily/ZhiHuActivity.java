@@ -2,7 +2,6 @@ package cn.cienet.zhihudaily;
 
 import java.util.ArrayList;
 import android.content.Intent;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +28,7 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 //	private BannerViewPager bannerViewPager;
 //	private List<IBannerItem> bannerItems;
 	
-	private SwipeRefreshLayout swipeRefreshLayout;
+//	private SwipeRefreshLayout swipeRefreshLayout;
 	
 	protected void onCreate(android.os.Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -53,7 +52,7 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				// TODO Auto-generated method stub
-				stopRefreshingData();
+//				stopRefreshingData();
 				if (position<newsInfoSource.size()) {
 					mPresenter.getNewsDetailResponse(newsInfoSource.get(position).getId());
 				}else {
@@ -74,11 +73,11 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 //            }
 //        });
         
-        swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.zhihu_swipe_refresh);
-        swipeRefreshLayout.setOnRefreshListener(this);
-        // set style  
-        swipeRefreshLayout.setColorScheme(android.R.color.holo_red_light, android.R.color.holo_green_light,  
-                android.R.color.holo_blue_bright, android.R.color.holo_orange_light);
+//        swipeRefreshLayout=(SwipeRefreshLayout) findViewById(R.id.zhihu_swipe_refresh);
+//        swipeRefreshLayout.setOnRefreshListener(this);
+//        // set style  
+//        swipeRefreshLayout.setColorScheme(android.R.color.holo_red_light, android.R.color.holo_green_light,  
+//                android.R.color.holo_blue_bright, android.R.color.holo_orange_light);
 	}
 	
 	private void initData(){
@@ -94,12 +93,12 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 		mPresenter.getHomeNewsResponse();
 	}
 
-	private void stopRefreshingData(){
-		if (swipeRefreshLayout.isRefreshing()) {
-			swipeRefreshLayout.setRefreshing(false);
-			mPresenter.cancelHttpTask("latest");
-		}
-	}
+//	private void stopRefreshingData(){
+//		if (swipeRefreshLayout.isRefreshing()) {
+//			swipeRefreshLayout.setRefreshing(false);
+//			mPresenter.cancelHttpTask("latest");
+//		}
+//	}
 	
 	@Override
 	protected ZhiHuPresenter createPresenter() {
@@ -117,7 +116,7 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
-		stopRefreshingData();
+//		stopRefreshingData();
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -137,7 +136,7 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 
 	    zhihuNewsAdapter.setNewsSources(newsInfoSource);
 	    news.onFinishLoading();
-	    stopRefreshingData();
+//	    stopRefreshingData();
 	};
 	
 	@Override
@@ -166,7 +165,7 @@ public class ZhiHuActivity extends BaseActivity<ZhiHuPresenter> implements ZhiHu
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 //		super.onBackPressed();
-		stopRefreshingData();
+//		stopRefreshingData();
 		mPresenter.cancelAllHttpTask();
 	    mApp.exit();
 	}

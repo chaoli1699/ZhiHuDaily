@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ZhiHuDaily</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string name="click_twice_to_exit">再按一次退出程序</string>
+    <string name="loading_data">获取更多数据</string>
+    <string name="no_more_data">没有更多数据</string>
+
+</resources>
